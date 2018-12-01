@@ -89,41 +89,23 @@ Array.from(new Set([1, 2, 3, 2, 2, 3])); // [1, 2, 3]
 
 ```javascript
 Array.from({length: 100}, (v, i) => i); // [0, 1, 2, ....99]
-```
 
-```javascript
 Array.from(Array(100), (v, i) => i); // [0, 1, 2, ....99]
-```
 
-```javascript
 Array.from(Array(100).keys()); // [0, 1, 2, ....99]
-```
 
-```javascript
 Array.apply(null,{length: 100}).map((v, i) => i); // [0, 1, 2, ....99]
-```
 
-```javascript
 Array(100).join().split(',').map((v, i) => i); // [0, 1, 2, ....99]
-```
- 
-```javascript
+
 '1'.repeat(100).split('').map((v, i) => i); // [0, 1, 2, ....99]
-```
 
-```javascript
 [...Array(100)].map((v, i) => i); // [0, 1, 2, ....99]
-```
- 
-```javascript
+
 [...Array(100).keys()]; // [0, 1, 2, ....99]
-```
 
-```javascript
 Object.keys(Array.apply(null,{length: 100})); // ['0', '1', '2', ....'99']
-```
 
-```javascript
 Object.keys(Array.apply(null,{length: 100})); // ['0', '1', '2', ....'99']
 ```
 
