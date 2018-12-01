@@ -1,10 +1,9 @@
 # javascript 实用代码段 #
 用于积累javascript中实用的一些代码段。按照实现的功能进行划分，不区分先后。
 
-[id_00000]: #detectionType
-## [检测对象类型][id_00000] ##
+## 检测对象类型 ##
 
-1. `toString()` 检测对象类型
+### `toString()` 检测对象类型 ###
 
 ```javascript
 var toString = Object.prototype.toString;
@@ -52,13 +51,11 @@ getType(Math); // "Math"
 getType(new Date); // "Date"
 ```
 
-[id_00001]: #multidimensionalArrayVariableOneDimensionalArray
-## [多维数组变一维数组][id_00001] ##
+## 多维数组变一维数组 ##
 
 原理是先把多维数组转字符串，再把字符串转为一维数组。
 
-[id_00002]: #multidimensionalArrayVariableOneDimensionalArray_join
-### [`join()`][id_00002] ###
+### `join()` ###
 
 ```javascript
 [[1,2,3],[2,[2,3]]].join().split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
