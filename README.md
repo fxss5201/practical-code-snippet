@@ -1,2 +1,4 @@
 # practical-code-segment
-javascript中实用的一些代码段
+用于积累javascript中实用的一些代码段
+
+按照实现的功能进行划分，不区分先后。
