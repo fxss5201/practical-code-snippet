@@ -4,6 +4,7 @@
 ## 检测对象类型 ##
 
 1. `toString()` 检测对象类型
+
 ```javascript
 var toString = Object.prototype.toString;
 toString.call(undefined); // "[object Undefined]"
@@ -30,7 +31,9 @@ toString.call(function(x){ return x * x; });   // "[object Function]"
 toString.call(Math); // "[object Math]"
 toString.call(new Date); // "[object Date]"
 ```
+
 下面提供一个获取所有类型的方法：
+
 ```javascript
 function getType(obj){
     return Object.prototype.toString.call(obj).slice(8, -1);
