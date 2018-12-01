@@ -52,11 +52,13 @@ getType(Math); // "Math"
 getType(new Date); // "Date"
 ```
 
-## 多维数组变一维数组 ##
+[id]: #multidimensionalArrayVariableOneDimensionalArray
+## [多维数组变一维数组][id] ##
 
 原理是先把多维数组转字符串，再把字符串转为一维数组。
 
-### `join()` ###
+[id]: #multidimensionalArrayVariableOneDimensionalArray_join
+### [`join()`][id] ###
 
 ```javascript
 [[1,2,3],[2,[2,3]]].join().split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
