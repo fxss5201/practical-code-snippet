@@ -60,3 +60,89 @@ getType(new Date); // "Date"
 ```javascript
 [[1,2,3],[2,[2,3]]].join().split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
 ```
+
+### toString() ###
+
+```javascript
+[[1,2,3],[2,[2,3]]].toString().split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
+```
+
+### 空字符串 ###
+
+```javascript
+([[1,2,3],[2,[2,3]]] + '').split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
+```
+
+### concat.apply（仅适用于二维数组） ###
+
+```javascript
+[].concat.apply([], [[1,2,3],[2,2,3]]); // [1, 2, 3, 2, 2, 3]
+```
+
+## 数组去重 ##
+
+```javascript
+Array.from(new Set([1, 2, 3, 2, 2, 3])); // [1, 2, 3]
+```
+
+## 生成从0到99的数组 ##
+
+```javascript
+Array.from({length: 100}, (v, i) => i); // [0, 1, 2, ....99]
+```
+
+```javascript
+Array.from(Array(100), (v, i) => i); // [0, 1, 2, ....99]
+```
+
+```javascript
+Array.from(Array(100).keys()); // [0, 1, 2, ....99]
+```
+
+```javascript
+Array.apply(null,{length: 100}).map((v, i) => i); // [0, 1, 2, ....99]
+```
+
+```javascript
+Array(100).join().split(',').map((v, i) => i); // [0, 1, 2, ....99]
+```
+ 
+```javascript
+'1'.repeat(100).split('').map((v, i) => i); // [0, 1, 2, ....99]
+```
+
+```javascript
+[...Array(100)].map((v, i) => i); // [0, 1, 2, ....99]
+```
+ 
+```javascript
+[...Array(100).keys()]; // [0, 1, 2, ....99]
+```
+
+```javascript
+Object.keys(Array.apply(null,{length: 100})); // ['0', '1', '2', ....'99']
+```
+
+```javascript
+Object.keys(Array.apply(null,{length: 100})); // ['0', '1', '2', ....'99']
+```
+
+## 转化为整数 ##
+
+```javascript
+var toInteger = function (value) {
+    var number = Number(value);
+    if (isNaN(number)) { return 0; }
+    if (number === 0 || !isFinite(number)) { return number; }
+    return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
+};
+
+toInteger(11.1); // 11
+toInteger('11.1'); // 11
+toInteger(NaN); // 0
+toInteger(true); // 1
+toInteger('w'); // 0
+toInteger(Infinity); // Infinity
+```
+
+
