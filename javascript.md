@@ -1,9 +1,10 @@
 # javascript 实用代码段 #
-用于积累javascript中实用的一些代码段。按照实现的功能进行划分，不区分先后。
+
+用于积累javascript中的实用代码段。按照实现的功能进行划分，不区分先后。
 
 ## 检测对象类型 ##
 
-### `toString()` 检测对象类型 ###
+### 检测对象类型-->>`toString()` 检测对象类型 ###
 
 ```javascript
 var toString = Object.prototype.toString;
@@ -55,25 +56,25 @@ getType(new Date); // "Date"
 
 原理是先把多维数组转字符串，再把字符串转为一维数组。
 
-### `join()` ###
+### 多维数组变一维数组-->>`join()` ###
 
 ```javascript
 [[1,2,3],[2,[2,3]]].join().split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
 ```
 
-### toString() ###
+### 多维数组变一维数组-->>`toString()` ###
 
 ```javascript
 [[1,2,3],[2,[2,3]]].toString().split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
 ```
 
-### 空字符串 ###
+### 多维数组变一维数组-->>空字符串 ###
 
 ```javascript
 ([[1,2,3],[2,[2,3]]] + '').split(',').map(x => x * 1); // [1, 2, 3, 2, 2, 3]
 ```
 
-### concat.apply（仅适用于二维数组） ###
+### 多维数组变一维数组-->>`concat.apply`（仅适用于二维数组） ###
 
 ```javascript
 [].concat.apply([], [[1,2,3],[2,2,3]]); // [1, 2, 3, 2, 2, 3]
