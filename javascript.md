@@ -128,4 +128,17 @@ toInteger('w'); // 0
 toInteger(Infinity); // Infinity
 ```
 
+## Array.of(7), Array(7) 和 Array.from({ length: 7 })的区别 ##
 
+* `Array.of(7)`创建一个具有单个元素 7 的数组。
+* `Array(7)`创建一个长度为 7 的空数组，数组中每个元素都为空，是稀疏数组。
+* `Array.from({ length: 7 })`创建一个具有 7 个元素且每个元素都是 `undefined` 的密集数组。
+
+
+```javascript
+Array.of(7); // [7]
+
+Array(7); // [empty × 7]
+
+Array.from({ length: 7 }); // [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+```
