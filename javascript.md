@@ -141,3 +141,29 @@ Array(7); // [empty × 7]
 
 Array.from({ length: 7 }); // [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
 ```
+
+## `Array.prototype.concat()`合并返回的数组是浅拷贝 ##
+
+`Array.prototype.concat()`方法创建一个新的数组，它由被调用的对象中的元素组成，每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组），返回一个浅拷贝，其中包含从原始数组组合的相同元素的副本。原始数组的元素将复制到新数组中，如下所示：
+
+* 数据类型，如字符串、数字和布尔值（不是`String`，`Number`和`Boolean`对象）：`concat()`将字符串和数字的值复制到新数组中。后面值的变更不会影响其他数组的值。
+
+* 引用对象：`concat()`将对象引用复制到新数组中。原始数组和新数组都引用相同的对象。引用对象值的更改会影响原始数组和新数组。
+
+```javascript
+var array1 = [1, 2, 3, 4],
+    array2 = [5, 6, [7, 8]],
+    array3 = array1.concat(array2); // [1, 2, 3, 4, 5, 6, [7, 8]]
+// 基本数据类型
+array2[0] = 9;
+console.log(array2); // [9, 6, [7, 8]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [7, 8]]
+// 引用类型
+array2[2][1] = 10;
+console.log(array2); // [9, 6, [7, 10]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [7, 10]]
+
+array3[6][0] = 11;
+console.log(array2); // [9, 6, [11, 10]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [11, 10]]
+```
