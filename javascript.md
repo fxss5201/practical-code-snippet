@@ -163,7 +163,11 @@ array2[2][1] = 10;
 console.log(array2); // [9, 6, [7, 10]]
 console.log(array3); // [1, 2, 3, 4, 5, 6, [7, 10]]
 
-array3[6][0] = 11;
-console.log(array2); // [9, 6, [11, 10]]
-console.log(array3); // [1, 2, 3, 4, 5, 6, [11, 10]]
+array3[0] = 11;
+console.log(array1); // [1, 2, 3, 4]
+console.log(array3); // [11, 2, 3, 4, 5, 6, [7, 10]]
+
+array3[6][0] = 12;
+console.log(array2); // [9, 6, [12, 10]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [12, 10]]
 ```
