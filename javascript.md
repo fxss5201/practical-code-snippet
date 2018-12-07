@@ -174,3 +174,60 @@ array3[6][0] = 12;
 console.log(array2); // [9, 6, [12, 10]]
 console.log(array3); // [1, 2, 3, 4, 5, 6, [12, 10]]
 ```
+
+## `Array.prototype.every()` ##
+
+`every()`方法为数组中的每个元素执行一次`callback`函数，直到它找到一个使`callback`返回`false`（或可转换为布尔值`false`的值）的元素。如果发现了一个这样的元素，`every()`方法将会立即返回 `false`，否则返回`true`。但是有几点需要注意的：
+
+* `every()`不会改变原数组。
+* `every()`遍历的元素范围在第一次调用`callback`之前就已确定了。在调用`every()`之后添加到数组中的元素不会被`callback`访问到。
+* 如果数组中存在的元素被更改，则他们传入`callback`的值是`every()`访问到他们那一刻的值。
+* 被删除的元素或从来未被赋值的元素将不会被访问到。
+* 空数组也是返回`true`。
+
+```javascript
+// `every()`不会改变原数组。
+var a = [1,2,3];
+a.every((v,i) => v < 10); // true
+console.log(a); // [1,2,3]
+
+// `every()`遍历的元素范围在第一次调用`callback`之前就已确定了。在调用`every()`之后添加到数组中的元素不会被`callback`访问到。
+a.every((v, i, arr) => {
+    if(i == 1){
+        arr.push(12);
+    }
+    return v < 10;
+}); // true
+console.log(a); // [1, 2, 3, 12]
+
+// 如果数组中存在的元素被更改，则他们传入`callback`的值是`every()`访问到他们那一刻的值。
+a.every((v, i, arr) => {
+    if(i == 1){
+        arr[3] = 4;
+    }
+    if(i == 3){
+        console.log(v); // 4
+    }
+    return v < 10;
+}); // true
+console.log(a); // [1, 2, 3, 4]
+
+// 被删除的元素或从来未被赋值的元素将不会被访问到。
+delete(a[3]);
+console.log(a); // [1, 2, 3, empty]
+a.every((v, i, arr) => {
+    console.log(v); // 1, 2, 3  a[3]未执行`callback`
+    return v < 10;
+}); // true
+
+a.every((v, i, arr) => {
+    if(i == 0){
+        delete(a[1]);
+    }
+    console.log(v); // 1, 3  a[1]未执行`callback`
+    return v < 10;
+}); // true
+
+// 空数组也是返回`true`。
+[].every((v, i) => v > 10); // true
+```
