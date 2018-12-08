@@ -7,7 +7,7 @@ meta:
   - name: keywords
     content: 实用代码段, javascript, css, html
 actionText: 快速查看 →
-actionLink: /javascript/
+actionLink: /js/javascript/
 footer: MIT Licensed | Copyright © 2018-present fxss5201
 pageClass: home-page
 ---
