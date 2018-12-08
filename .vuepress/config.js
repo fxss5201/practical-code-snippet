@@ -35,21 +35,26 @@ module.exports = {
             {
                 text: 'js',
                 items: [
-                    { text: 'javascript', link: '/javascript/' },
-                    { text: 'Vue', link: '/Vue/' },
-                    { text: 'React', link: '/React/' },
-                    { text: 'jQuery', link: '/jQuery/' },
+                    { text: 'javascript', link: '/js/javascript/' },
+                    { text: 'Vue', link: '/js/Vue/' },
+                    { text: 'React', link: '/js/React/' },
+                    { text: 'jQuery', link: '/js/jQuery/' },
                 ]
             },
             {
                 text: 'css',
                 items: [
-                    { text: 'css', link: '/css/' },
-                    { text: 'Stylus', link: '/Stylus/' }
+                    { text: 'css', link: '/css/css/' },
+                    { text: 'Stylus', link: '/css/Stylus/' }
                 ]
             },
             { text: 'html', link: '/html/' },
-            { text: 'git', link: '/git/' },
+            { 
+                text: '工具',
+                items: [
+                    { text: 'git', link: '/tool/git/' }
+                ]
+            },
             { text: 'Github', link: 'https://github.com/fxss5201/practical-code-snippet' },
         ],
         serviceWorker: {
