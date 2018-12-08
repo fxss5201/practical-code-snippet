@@ -16,6 +16,8 @@ pageClass: home-page
 
 如果你也想成为贡献者，清前往[GitHub practical-code-snippet/issues](https://github.com/fxss5201/practical-code-snippet/issues)提交你的代码。
 
+贡献者前5位（非固定，按贡献度排行）可享受将自己的博客链接放在导航栏的博客栏目中。
+
 ## 贡献者列表 ##
 
 * [![fxss5201](https://avatars2.githubusercontent.com/u/21698289?s=40&u=b8141af058c41b99ef4bd22adc9ddba553ec9f81&v=4)](https://github.com/fxss5201)

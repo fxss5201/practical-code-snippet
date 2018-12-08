@@ -56,6 +56,18 @@ module.exports = {
                 ]
             },
             { text: 'Github', link: 'https://github.com/fxss5201/practical-code-snippet' },
+            {
+                text: '博客',
+                items: [
+                    {
+                        text: 'fxss5201',
+                        items: [
+                            { text: 'CSDN博客', link: 'https://blog.csdn.net/fxss5201' },
+                            { text: '个人博客', link: 'http://www.fxss5201.cn/' }
+                        ] 
+                    }
+                ]
+            }
         ],
         serviceWorker: {
             updatePopup: true, // Boolean | Object, 默认值是 undefined.
