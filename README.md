@@ -14,7 +14,7 @@ pageClass: home-page
 
 ## 贡献者 ##
 
-如果你也想成为贡献者，清前往[GitHub practical-code-segment/issues](https://github.com/fxss5201/practical-code-snippet/issues)提交你的代码。
+如果你也想成为贡献者，清前往[GitHub practical-code-snippet/issues](https://github.com/fxss5201/practical-code-snippet/issues)提交你的代码。
 
 ### 贡献者列表 ###
 
