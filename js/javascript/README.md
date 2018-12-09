@@ -257,3 +257,23 @@ filterItems('ap'); // ["apple", "grapes"]
 ```
 
 例子查看：[Open in CodePen](https://codepen.io/fxss5201/pen/VqwpdV)
+
+## 查找数组中的首个质数及其索引 ##
+
+```javascript
+function isPrime(element, index, array) {
+    var start = 2;
+    while (start <= Math.sqrt(element)) {
+        if (element % start++ < 1) {
+            return false;
+        }
+    }
+    return element > 1;
+}
+
+console.log([4, 6, 8, 12].find(isPrime)); // undefined
+console.log([4, 5, 6, 8].find(isPrime)); // 5
+
+console.log([4, 6, 8, 12].findIndex(isPrime)); // -1
+console.log([4, 5, 6, 8].findIndex(isPrime)); // 1
+```
