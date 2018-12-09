@@ -15,7 +15,12 @@ module.exports = {
         ['@vuepress/search', {
             searchMaxSuggestions: 10
         }],
-        ['@vuepress/back-to-top'],
+        ['@vuepress/back-to-top', true],
+        ['@vuepress/pwa', {
+            serviceWorker: true,
+            updatePopup: true
+        }],
+        ['@vuepress/medium-zoom', true],
         ['@vuepress/google-analytics', {
             ga: 'UA-130628058-1'
         }],
@@ -29,6 +34,9 @@ module.exports = {
         }]
     ],
     themeConfig: {
+        repo: 'fxss5201/practical-code-snippet',
+        editLinks: true, 
+        editLinkText: '帮助我们改善此页面！',
         lastUpdated: '上次更新',
         nav: [
             { text: '首页', link: '/' },
@@ -55,7 +63,6 @@ module.exports = {
                     { text: 'git', link: '/tool/git/' }
                 ]
             },
-            { text: 'Github', link: 'https://github.com/fxss5201/practical-code-snippet' },
             {
                 text: '博客',
                 items: [
