@@ -138,11 +138,12 @@ toInteger('w'); // 0
 toInteger(Infinity); // Infinity
 ```
 
-## Array.of(7), Array(7) 和 Array.from({ length: 7 })的区别 ##
+## `Array.of(7)`, `Array(7)`, `Array.from({ length: 7 })` 和 `[...Array(7)]`的区别 ##
 
 * `Array.of(7)`创建一个具有单个元素 7 的数组。
 * `Array(7)`创建一个长度为 7 的空数组，数组中每个元素都为空，是稀疏数组。
 * `Array.from({ length: 7 })`创建一个具有 7 个元素且每个元素都是 `undefined` 的密集数组。
+* `[...Array(7)]`创建一个具有 7 个元素且每个元素都是 `undefined` 的密集数组。
 
 ```javascript
 Array.of(7); // [7]
@@ -150,4 +151,93 @@ Array.of(7); // [7]
 Array(7); // [empty × 7]
 
 Array.from({ length: 7 }); // [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+
+[...Array(7)]; // [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+```
+
+## `Array.prototype.concat()`合并返回的数组是浅拷贝 ##
+
+`Array.prototype.concat()`方法创建一个新的数组，它由被调用的对象中的元素组成，每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组），返回一个浅拷贝，其中包含从原始数组组合的相同元素的副本。原始数组的元素将复制到新数组中，如下所示：
+
+* 数据类型，如字符串、数字和布尔值（不是`String`，`Number`和`Boolean`对象）：`concat()`将字符串和数字的值复制到新数组中。后面值的变更不会影响其他数组的值。
+
+* 引用对象：`concat()`将对象引用复制到新数组中。原始数组和新数组都引用相同的对象。引用对象值的更改会影响原始数组和新数组。
+
+```javascript
+var array1 = [1, 2, 3, 4],
+    array2 = [5, 6, [7, 8]],
+    array3 = array1.concat(array2); // [1, 2, 3, 4, 5, 6, [7, 8]]
+// 基本数据类型
+array2[0] = 9;
+console.log(array2); // [9, 6, [7, 8]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [7, 8]]
+// 引用类型
+array2[2][1] = 10;
+console.log(array2); // [9, 6, [7, 10]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [7, 10]]
+
+array3[0] = 11;
+console.log(array1); // [1, 2, 3, 4]
+console.log(array3); // [11, 2, 3, 4, 5, 6, [7, 10]]
+
+array3[6][0] = 12;
+console.log(array2); // [9, 6, [12, 10]]
+console.log(array3); // [1, 2, 3, 4, 5, 6, [12, 10]]
+```
+
+## `Array.prototype.every()` ##
+
+`every()`方法为数组中的每个元素执行一次`callback`函数，直到它找到一个使`callback`返回`false`（或可转换为布尔值`false`的值）的元素。如果发现了一个这样的元素，`every()`方法将会立即返回 `false`，否则返回`true`。但是有几点需要注意的：
+
+* `every()`不会改变原数组。
+* `every()`遍历的元素范围在第一次调用`callback`之前就已确定了。在调用`every()`之后添加到数组中的元素不会被`callback`访问到。
+* 如果数组中存在的元素被更改，则他们传入`callback`的值是`every()`访问到他们那一刻的值。
+* 被删除的元素或从来未被赋值的元素将不会被访问到。
+* 空数组也是返回`true`。
+
+```javascript
+// `every()`不会改变原数组。
+var a = [1,2,3];
+a.every((v,i) => v < 10); // true
+console.log(a); // [1,2,3]
+
+// `every()`遍历的元素范围在第一次调用`callback`之前就已确定了。在调用`every()`之后添加到数组中的元素不会被`callback`访问到。
+a.every((v, i, arr) => {
+    if(i == 1){
+        arr.push(12);
+    }
+    return v < 10;
+}); // true
+console.log(a); // [1, 2, 3, 12]
+
+// 如果数组中存在的元素被更改，则他们传入`callback`的值是`every()`访问到他们那一刻的值。
+a.every((v, i, arr) => {
+    if(i == 1){
+        arr[3] = 4;
+    }
+    if(i == 3){
+        console.log(v); // 4
+    }
+    return v < 10;
+}); // true
+console.log(a); // [1, 2, 3, 4]
+
+// 被删除的元素或从来未被赋值的元素将不会被访问到。
+delete(a[3]);
+console.log(a); // [1, 2, 3, empty]
+a.every((v, i, arr) => {
+    console.log(v); // 1, 2, 3  a[3]未执行`callback`
+    return v < 10;
+}); // true
+
+a.every((v, i, arr) => {
+    if(i == 0){
+        delete(a[1]);
+    }
+    console.log(v); // 1, 3  a[1]未执行`callback`
+    return v < 10;
+}); // true
+
+// 空数组也是返回`true`。
+[].every((v, i) => v > 10); // true
 ```
