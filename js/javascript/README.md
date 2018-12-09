@@ -241,3 +241,19 @@ a.every((v, i, arr) => {
 // 空数组也是返回`true`。
 [].every((v, i) => v > 10); // true
 ```
+
+## 筛选（搜索）`Array.prototype.filter()` ##
+
+`filter()`方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
+
+```javascript
+var allOptionList = ['apple', 'banana', 'grapes', 'mango', 'orange'],
+    filterItems = (query) => {
+        return allOptionList.filter((value) => value.toLowerCase().indexOf(query.toLowerCase()) > -1);
+    };
+
+filterItems('b'); // ["banana"]
+filterItems('ap'); // ["apple", "grapes"]
+```
+
+例子查看：[Open in CodePen](https://codepen.io/fxss5201/pen/VqwpdV)
