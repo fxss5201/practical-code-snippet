@@ -277,3 +277,21 @@ console.log([4, 5, 6, 8].find(isPrime)); // 5
 console.log([4, 6, 8, 12].findIndex(isPrime)); // -1
 console.log([4, 5, 6, 8].findIndex(isPrime)); // 1
 ```
+
+## 从数组中找出指定元素出现的所有位置 ##
+
+```javascript
+var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+function getIndexOfList(array, element){
+    var indexOfList = [];
+    var index = array.indexOf(element);
+    while (index != -1) {
+        indexOfList.push(index);
+        index = array.indexOf(element, index + 1);
+    }
+    return indexOfList;
+}
+
+getIndexOfList(array, 'a'); // [0, 2, 4]
+getIndexOfList(array, 'e'); // []
+```
