@@ -115,6 +115,15 @@ new_array = Array.from(arrayLike[, mapFn[, thisArg]]);
 [].concat.apply([], [[1,2,3],[2,2,3]]); // [1, 2, 3, 2, 2, 3]
 ```
 
+### 多维数组变一维数组-->>`Array.reduce`（仅适用于二维数组） ###
+
+```javascript
+[[1,2,3],[2,2,3]].reduce(
+    ( acc, cur ) => acc.concat(cur),
+    []
+); // [1, 2, 3, 2, 2, 3]
+```
+
 ## 数组去重 ##
 
 ```javascript
