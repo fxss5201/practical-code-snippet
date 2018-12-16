@@ -1,11 +1,10 @@
 ---
-title: javascript 实用代码段
+title: javascript 多动解决方案实现
 lang: zh-CN
 description: 用于积累javascript中的实用代码段。按照实现的功能进行划分，不区分先后。
 meta:
   - name: keywords
     content: javascript, 实用代码段
-sidebar: auto
 ---
 
 # javascript 实用代码段 #
@@ -61,31 +60,6 @@ getType(function(x){ return x * x; }); // "Function"
 getType(Math); // "Math"
 getType(new Date); // "Date"
 ```
-
-## `Array`方法总结 ##
-
-::: tip 阅读提示
-每个方法都有相应的描述、语法、参数、注意项（可选）。
-
-语法中的`[]`里面中的内容表示参数为可选参数。
-:::
-
-### `Array.from()` ###
-
-描述：从一个类似数组或可迭代对象中创建一个新的数组实例。
-
-语法：
-
-```javascript
-new_array = Array.from(arrayLike[, mapFn[, thisArg]]);
-```
-
-参数：
-
-1. `new_array`：返回的新数组。
-2. `arrayLike`：类似数组或可迭代对象。
-3. `mapFn`：新数组中的每个元素都执行的回调函数，效果等同于：`Array.from(arrayLike).map(mapFn, thisArg)`。
-4. `thisArg`：执行回调函数`mapFn`时的`this`对象。
 
 ## 多维数组变一维数组 ##
 

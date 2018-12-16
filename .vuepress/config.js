@@ -16,6 +16,7 @@ module.exports = {
             searchMaxSuggestions: 10
         }],
         ['@vuepress/back-to-top', true],
+        ['@vuepress/blog', true], 
         ['@vuepress/pwa', {
             serviceWorker: true,
             updatePopup: true
@@ -76,6 +77,12 @@ module.exports = {
                 ]
             }
         ],
+        sidebar: {
+            '/js/javascript/': [
+                ['', '通用方法'],
+                ['Array', 'Array方法总结'],
+            ]
+        },
         serviceWorker: {
             updatePopup: true, // Boolean | Object, 默认值是 undefined.
             // 如果设置为 true, 默认的文本配置将是: 
