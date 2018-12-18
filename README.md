@@ -12,6 +12,12 @@ footer: MIT Licensed | Copyright © 2018-present fxss5201
 pageClass: home-page
 ---
 
+![](https://img.shields.io/badge/language-javascript-green.svg)
+![](https://img.shields.io/badge/language-Vue-green.svg)
+![](https://img.shields.io/badge/Dependencies-MarkDown-brightgreen.svg)
+![](https://img.shields.io/badge/VuePress-v1.x-blue.svg)
+![](https://img.shields.io/badge/license-MIT-blue.svg)
+
 # 贡献者 #
 
 如果你也想成为贡献者，清前往[GitHub practical-code-snippet/issues](https://github.com/fxss5201/practical-code-snippet/issues)提交你的代码。
