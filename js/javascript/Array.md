@@ -389,3 +389,115 @@ var arr1 = [1, 2, 3, 4];
 arr1.flatMap(x => [x * 2]); // [2, 4, 6, 8]
 arr1.map(x => [x * 2]).flat(); // [2, 4, 6, 8]
 ```
+
+## `Array.prototype.forEach()` ##
+
+**描述**：对数组的每个元素执行一次提供的函数。
+
+**语法**：
+
+```javascript
+old_array.forEach(callback(element[, index[, array]])[, thisArg]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `callback`：为数组中每个元素执行的函数。
+   1. `element`：当前在数组中处理的元素。
+   2. `index`：当前在数组中处理的元素的索引。
+   3. `array`：当前数组。
+
+**返回值**：`undefined`。
+
+**注意项**：
+
+1. `forEach`遍历的元素范围在第一次调用`callback`之前就已经确定了。在调用`forEach`之后新添加到数组中的元素不会被`callback`访问到。如果数组中存在的元素被更改，则他们传入`callback`的值是`forEach`访问到他们那一刻的值。被删除的元素将不会被访问到。
+2. 没有办法中止或者跳出`forEach`循环，除了抛出一个异常。
+
+**例子**：
+
+```javascript
+var a = [1, 2, 3, 4].forEach(x => console.log(x * 2));
+// 2
+// 4
+// 6
+// 8
+
+console.log(a); // undefined
+
+/** 如果数组在迭代时被修改了，则其他元素会被跳过。
+ * 数组到two的时候移除第一个元素，所以每个位置上的元素都会往前移动一位，并且当前index为2，所以就得到对应值为four
+ */
+var words = ["one", "two", "three", "four"];
+words.forEach(function(word, index) {
+  console.log('No' + index + '. ' + word);
+  if (word === "two") {
+    words.shift();
+  }
+});
+// No0. one
+// No1. two
+// No2. four
+```
+
+## `Array.prototype.includes()` ##
+
+**描述**：用来判断一个数组是否包含一个指定的值，如果包含则返回`true`，否则返回`false`。
+
+**语法**：
+
+```javascript
+boolean = old_array.includes(searchElement[, fromIndex]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `searchElement`：需要查找的元素值。
+3. `fromIndex`：从该索引处开始查找`searchElement`。如果为负值，则按升序从`array.length - fromIndex`的索引开始搜索。默认为 0。
+
+**返回值**：
+
+1. 如果包含则返回`true`，否则返回`false`。
+
+**例子**：
+
+```javascript
+[1, 2, 3].includes(2);     // true
+[1, 2, 3].includes(4);     // false
+[1, 2, 3].includes(3, 3);  // false
+[1, 2, 3].includes(3, -1); // true
+[1, 2, NaN].includes(NaN); // true
+```
+
+## `Array.prototype.indexOf()` ##
+
+**描述**：返回在数组中找到给定元素的第一个索引，如果不存在，则返回-1。
+
+**语法**：
+
+```javascript
+number = old_array.indexOf(searchElement[, fromIndex]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `searchElement`：需要查找的元素值。
+3. `fromIndex`：从该索引处开始查找`searchElement`。如果为负值，则按升序从`array.length - fromIndex`的索引开始搜索。默认为 0。
+
+**返回值**：
+
+1. 返回在数组中找到给定元素的第一个索引，如果不存在，则返回-1。
+
+**注意项**：
+
+1. `indexOf`使用严格等于进行判断（仅当两个操作数的类型相同且值相等才为`true`）。
+
+**例子**：
+
+```javascript
+[2, 5, 9].indexOf(2); // 0
+[2, 5, 9].indexOf('2'); // -1
+```
