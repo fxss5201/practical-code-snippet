@@ -109,3 +109,48 @@ array = old_array.copyWithin(target[, start[, end]]);
 返回值：
 
 1. `array`：在原数组上复制粘贴，然后将其返回。
+
+## `Array.prototype.entries()` ##
+
+描述：返回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对。
+
+语法：
+
+```javascript
+new_array_iterator = old_array.entries();
+```
+
+参数：
+
+1. `old_array`：原数组。
+
+返回值：
+
+1. `new_array_iterator`：一个新的`Array`迭代器对象。可以通过`new_array_iterator.next().value`遍历迭代器取得原数组的`[key,value]`。
+
+## `Array.prototype.every()` ##
+
+描述：测试数组的所有元素是否都通过了指定函数的测试。
+
+语法：
+
+```javascript
+boolean = old_array.every(callback[, thisArg]);
+```
+
+参数：
+
+1. `old_array`：原数组。
+2. `callback`：用来测试每个元素的函数。
+3. `thisArg`：执行`callback`时使用的`this`值。
+
+返回值：
+
+1. `boolean`：返回一个`Boolean`值，`every`方法为数组中的每个元素执行一次`callback`函数，直到找到一个使`callback`返回`false`（表示可转换为布尔值`false`的值）的元素。如果发现了一个这样的元素，`every`方法将会立即返回`false`。否则，`callback`为每一个元素返回`true`，`every`方法才会返回`true`。
+
+注意项：
+
+1. `callback`只会为已经被赋值的索引调用，不会被删除或从来没被赋值的索引调用。
+2. `every`不会改变原数组。
+3. `every`遍历的元素范围在第一次调用`callback`之前就已经确定了。在调用`every`之后新添加到数组中的元素不会被`callback`访问到。如果数组中存在的元素被更改，则他们传入`callback`的值是 `every`访问到他们那一刻的值。那些被删除的元素或从来未被赋值的元素将不会被访问到。
+4. 空数组返回`true`。
