@@ -459,7 +459,7 @@ boolean = old_array.includes(searchElement[, fromIndex]);
 
 **返回值**：
 
-1. 如果包含则返回`true`，否则返回`false`。
+1. `boolean`：如果包含则返回`true`，否则返回`false`。
 
 **例子**：
 
@@ -489,7 +489,7 @@ number = old_array.indexOf(searchElement[, fromIndex]);
 
 **返回值**：
 
-1. 返回在数组中找到给定元素的第一个索引，如果不存在，则返回-1。
+1. `number`：返回在数组中找到给定元素的第一个索引，如果不存在，则返回-1。
 
 **注意项**：
 
@@ -500,4 +500,73 @@ number = old_array.indexOf(searchElement[, fromIndex]);
 ```javascript
 [2, 5, 9].indexOf(2); // 0
 [2, 5, 9].indexOf('2'); // -1
+```
+
+## `Array.prototype.join()` ##
+
+**描述**：将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。
+
+**语法**：
+
+```javascript
+string = old_array.join([separator]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `separator`：数组元素组合成字符串时之间的分隔符，默认为`,`，如不希望使用分隔符，则指定`''`。
+
+**返回值**：
+
+1. `string`：所有元素连接成的字符串。
+
+**注意项**：
+
+1. 如果元素是`undefined`或者`null`，则会转化成空字符串`''`。
+
+**例子**：
+
+```javascript
+['a', 'b', 'c'].join();        // "a,b,c"
+['a', 'b', 'c'].join('');      // "abc"
+['a', 'b', 'c'].join('-');     // "a-b-c"
+
+['a', undefined, null].join(); // "a,,"
+```
+
+## `Array.prototype.keys()` ##
+
+**描述**：返回一个包含数组中每个索引键的`Array Iterator`对象。
+
+**语法**：
+
+```javascript
+new_iterator = old_array.keys();
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+
+**返回值**：
+
+1. `new_iterator`：返回一个包含数组中每个索引键的`Array Iterator`对象。
+
+**注意项**：
+
+1. 索引迭代器会包含那些没有对应元素的索引。
+
+**例子**：
+
+```javascript
+var iterator = ['a', 'b', 'c'].keys();
+iterator.next();   // {value: 0,done: false}
+iterator.next();   // {value: 1,done: false}
+iterator.next();   // {value: 2,done: false}
+iterator.next();   // {value: undefined,done: true}
+
+var arr = ["a", , "c"];
+var sparseKeys = Object.keys(arr); // ["0", "2"]
+var denseKeys = [...arr.keys()];   // [0, 1, 2]
 ```
