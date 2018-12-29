@@ -570,3 +570,34 @@ var arr = ["a", , "c"];
 var sparseKeys = Object.keys(arr); // ["0", "2"]
 var denseKeys = [...arr.keys()];   // [0, 1, 2]
 ```
+
+## `Array.prototype.lastIndexOf()` ##
+
+**描述**：返回从数组中**逆向**找到给定元素的第一个索引，如果不存在，则返回-1。
+
+**语法**：
+
+```javascript
+number = old_array.lastIndexOf(searchElement[, fromIndex]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `searchElement`：需要查找的元素值。
+3. `fromIndex`：从该索引处开始**逆向**查找`searchElement`。默认值从`array.length - 1`，即整个数组都被查找。如果该值大于或等于数组的长度，则整个数组会被查找。如果为负值，则从`array.length + fromIndex`索引出开始**逆向**查找。如果负值的绝对值大于数组长度，则方法返回 -1，即数组不会被查找。
+
+**返回值**：
+
+1. `number`：返回从数组中**逆向**找到给定元素的第一个索引，如果不存在，则返回-1。
+
+**注意项**：
+
+1. `lastIndexOf`使用严格等于进行判断（仅当两个操作数的类型相同且值相等才为`true`）。
+
+**例子**：
+
+```javascript
+[2, 5, 9].lastIndexOf(2); // 0
+[2, 5, 9].lastIndexOf('2'); // -1
+```
