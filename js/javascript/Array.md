@@ -601,3 +601,187 @@ number = old_array.lastIndexOf(searchElement[, fromIndex]);
 [2, 5, 9].lastIndexOf(2); // 0
 [2, 5, 9].lastIndexOf('2'); // -1
 ```
+
+## `Array.prototype.map()` ##
+
+**描述**：创建一个新数组，其结果是该数组中的每个元素都调用提供函数后返回的结果。
+
+**语法**：
+
+```javascript
+new_array = old_array.map(callback(element[, index[, array]])[, thisArg]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `callback`：原数组中的每个元素都执行的回调函数，然后返回新数组中对应索引处的元素。
+   1. `element`：当前在数组中处理的元素。
+   2. `index`：当前在数组中处理的元素的索引。
+   3. `array`：当前数组。
+3. `thisArg`：执行回调函数时的`this`对象。
+
+**返回值**：
+
+1. `new_array`：`callback`每次执行后的返回值（包括`undefined`）组合起来形成一个新数组。
+
+**注意项**：
+
+1. `map`遍历的元素范围在第一次调用`callback`之前就已经确定了。在调用`map`之后新添加到数组中的元素不会被`callback`访问到。如果数组中存在的元素被更改，则他们传入`callback`的值是`map`访问到他们那一刻的值。从来没被赋过值或被删除的元素将不会被访问到。
+
+**例子**：
+
+```javascript
+[2, 5, 9].map(x => x * x); // [4, 25, 81]
+
+["1", "2", "3"].map(parseInt); // [1, NaN, NaN]
+["1", "2", "3"].map(x => parseInt(x)); // [1, 2, 3]
+```
+
+## `Array.prototype.pop()` ##
+
+**描述**：从数组中删除最后一个元素，并返回该元素的值。
+
+**语法**：
+
+```javascript
+last_element = old_array.pop();
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+
+**返回值**：
+
+1. `last_element`：数组的最后一个元素。
+
+**注意项**：
+
+1. 在空数组上调用`pop()`，返回`undefined`。
+2. `Array(7)`等稀疏数组上调用`pop()`，返回`undefined`。
+3. 此方法会改变原数组。
+
+**例子**：
+
+```javascript
+[2, 5, 9].pop(); // 9
+[2, 5, [9, 10]].pop(); // [9, 10]
+
+[].pop(); // undefined
+Array(7).pop(); // undefined
+```
+
+## `Array.prototype.push()` ##
+
+**描述**：将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+
+**语法**：
+
+```javascript
+new_array_length = old_array.push(element1, ..., elementN);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `elementN`：被添加到数组末尾的元素。
+
+**返回值**：
+
+1. `new_array_length`：返回数组添加元素之后的新长度。
+
+**例子**：
+
+```javascript
+var arr = [1, 2, 3];
+arr.push(4, 5); // 5
+console.log(arr); // [1, 2, 3, 4, 5]
+```
+
+## `Array.prototype.reduce()` ##
+
+**描述**：对数组中的每个元素执行提供的`reducer`函数(升序执行)，将其结果汇总为单个返回值。
+
+**语法**：
+
+```javascript
+number = old_array.reduce(callback(accumulator, element[[, index], array])[, initialValue]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `callback`：原数组中的每个元素都执行的回调函数。
+   1. `accumulator`：上一次调用回调的返回值，或提供的`initialValue`。
+   2. `element`：当前在数组中处理的元素。
+   3. `index`：当前在数组中处理的元素的索引。
+   4. `array`：当前数组。
+3. `initialValue`：用作第一次调用`callback`的参数值。如果未提供初始值，则将使用数组中的第一个元素。空数组在没有初始值时调用`reduce()`抛出`TypeError`。
+
+**返回值**：
+
+1. `number`：对数组中的每个元素执行提供的`reducer`函数(升序执行)，将其结果汇总为单个返回值。
+
+**注意项**：
+
+1. `reduce`为数组中的每一个元素依次执行`callback`函数，不包括数组中被删除或从未被赋值的元素。
+2. 如果调用`reduce`时提供了`initialValue`，`accumulator`取值为`initialValue`，`element`取数组中的第一个值；如果没有提供`initialValue`，那么`accumulator`取数组中的第一个值，`element`取数组中的第二个值。
+3. 如果没有提供`initialValue`，`reduce`会从索引 1 的地方开始执行`callback`方法，跳过第一个索引。如果提供`initialValue`，从索引 0 开始。
+4. 如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`，或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且`callback`不会被执行。
+
+**例子**：（代码注释中的`->`表示执行一次的结果）
+
+```javascript
+[0, 1, 2, 3, 4].reduce(function(accumulator, element, index, array){
+  console.log(accumulator); // 0 -> 1 -> 3 -> 6
+  return accumulator + element;
+}); // 10
+[0, 1, 2, 3, 4].reduce(function(accumulator, element, index, array){
+  console.log(accumulator); // 10 -> 10 -> 11 -> 13 -> 16
+  return accumulator + element;
+}, 10); // 20
+```
+
+## `Array.prototype.reduceRight()` ##
+
+**描述**：从右到左对数组中的每个元素执行提供的`reduceRight`函数，将其结果汇总为单个返回值。
+
+**语法**：
+
+```javascript
+number = old_array.reduceRight(callback(previousValue, element[[, index], array])[, initialValue]);
+```
+
+**参数**：
+
+1. `old_array`：原数组。
+2. `callback`：原数组中的每个元素都执行的回调函数。
+   1. `previousValue`：上一次调用回调的返回值，或提供的`initialValue`。
+   2. `element`：当前在数组中处理的元素。
+   3. `index`：当前在数组中处理的元素的索引。
+   4. `array`：当前数组。
+3. `initialValue`：用作第一次调用`reduceRight`的参数值。如果未提供初始值，则将使用数组中的最后一个元素。空数组在没有初始值时调用`reduceRight()`抛出`TypeError`。
+
+**返回值**：
+
+1. `number`：从右到左对数组中的每个元素执行提供的`reduceRight`函数，将其结果汇总为单个返回值。
+
+**注意项**：
+
+1. `reduceRight`为数组中的每一个元素依次执行`callback`函数，不包括数组中被删除或从未被赋值的元素。
+2. 如果调用`reduceRight`时提供了`initialValue`，`previousValue`取值为`initialValue`，`element`取数组中的最后一个值；如果没有提供`initialValue`，那么`previousValue`取数组中的最后一个值，`element`取数组中的倒数第二个值。
+3. 如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`，或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且`callback`不会被执行。
+
+**例子**：
+
+```javascript
+[0, 1, 2, 3, 4].reduceRight(function(accumulator, element, index, array){
+  console.log(accumulator); // 4 -> 7 -> 9 -> 10
+  return accumulator + element;
+}); // 10
+[0, 1, 2, 3, 4].reduceRight(function(accumulator, element, index, array){
+  console.log(accumulator); // 10 -> 14 -> 17 -> 19 -> 20
+  return accumulator + element;
+}, 10); // 20
+```
