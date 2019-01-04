@@ -8,7 +8,7 @@ meta:
     content: 实用代码段, javascript, css, html
 actionText: 快速查看 →
 actionLink: /js/javascript/
-footer: MIT Licensed | Copyright © 2018-present fxss5201
+footer: MIT Licensed | Copyright © 2019-present fxss5201
 pageClass: home-page
 ---
 
