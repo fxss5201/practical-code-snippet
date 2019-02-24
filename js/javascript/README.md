@@ -314,7 +314,7 @@ getIndexOfList(array, 'e'); // []
 - 如果字符串string以"0"开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，永远都要明确给出radix参数的值。
 - 如果字符串string以其它任何值开头，则基数是10 (十进制)。
 
-数组的`map`函数默认有3个参数`element`/`index`/`array`，`parseInt`接受两个参数，所以`[1, 2, 3].map(parseInt)`实际执行过程如下：
+数组的`map`函数有两个参数，`callback`、`thisArg`，`callback`有3个参数`element`/`index`/`array`，在本例中此时的`callback`就是`parseInt`，`parseInt`接受两个参数（也就是说`callback`的前两个参数），所以`[1, 2, 3].map(parseInt)`实际执行过程如下：
 
 ``` javascript
 parseInt(1, 0); // 在基数为0的时候，如果字符串string以其它任何值开头，则基数是10，所以返回 1
