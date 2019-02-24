@@ -75,7 +75,8 @@ module.exports = {
                         ] 
                     }
                 ]
-            }
+            },
+            { text: '更新日志', link: '/version/' },
         ],
         sidebar: {
             '/js/javascript/': [
