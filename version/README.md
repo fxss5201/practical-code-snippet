@@ -9,6 +9,10 @@ meta:
 
 # 更新日志 #
 
+## 2019-02-26 ##
+
+- 新增 js -> javascript -> Polyfill -> `Array.flat`的实现方式
+
 ## 2019-02-24 ##
 
 - 新增 js -> javascript -> 通用方法 -> `[1, 2, 3].map(parseInt)`的执行过程

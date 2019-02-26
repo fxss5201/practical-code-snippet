@@ -82,6 +82,7 @@ module.exports = {
             '/js/javascript/': [
                 ['', '通用方法'],
                 ['Array', 'Array方法总结'],
+                ['Polyfill', 'Polyfill'],
             ]
         },
         serviceWorker: {
