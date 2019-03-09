@@ -11,15 +11,16 @@ meta:
 
 ## 2019-03-09 ##
 
-- 新增  js -> Vue -> Vue配置 -> API 请求代理==>>跨域问题
+- 新增  javascript -> Vue配置 -> API 请求代理==>>跨域问题
+- 新增  javascript -> Vue插件 -> axios -> 取消请求
 
 ## 2019-02-26 ##
 
-- 新增 js -> javascript -> Polyfill -> `Array.flat`的实现方式
+- 新增 javascript -> Polyfill -> `Array.flat`的实现方式
 
 ## 2019-02-24 ##
 
-- 新增 js -> javascript -> 通用方法 -> `[1, 2, 3].map(parseInt)`的执行过程
+- 新增 javascript -> 通用方法 -> `[1, 2, 3].map(parseInt)`的执行过程
 
 ## 2018 ##
 
