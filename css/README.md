@@ -1,14 +1,13 @@
 ---
-title: css 实用代码段
+title: css
 lang: zh-CN
 description: 用于积累css中的实用代码段。按照实现的功能进行划分，不区分先后。
 meta:
   - name: keywords
     content: css, 实用代码段
-sidebar: auto
 ---
 
-# css 实用代码段 #
+# css #
 
 用于积累css中的实用代码段。按照实现的功能进行划分，不区分先后。
 

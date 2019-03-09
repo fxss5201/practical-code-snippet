@@ -9,6 +9,10 @@ meta:
 
 # 更新日志 #
 
+## 2019-03-09 ##
+
+- 新增  js -> Vue -> Vue配置 -> API 请求代理==>>跨域问题
+
 ## 2019-02-26 ##
 
 - 新增 js -> javascript -> Polyfill -> `Array.flat`的实现方式

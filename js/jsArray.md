@@ -1,5 +1,5 @@
 ---
-title: javascript Array方法总结
+title: Array方法总结
 lang: zh-CN
 description: 用于积累javascript中的实用代码段。按照实现的功能进行划分，不区分先后。
 meta:
@@ -7,7 +7,7 @@ meta:
     content: javascript, 实用代码段
 ---
 
-# javascript `Array`方法总结 #
+# `Array`方法总结 #
 
 ::: tip 阅读提示
 每个方法都有相应的描述、语法、参数、返回值、注意项（可选）、例子（可选）。

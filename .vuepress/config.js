@@ -41,29 +41,11 @@ module.exports = {
         lastUpdated: '上次更新',
         nav: [
             { text: '首页', link: '/' },
-            {
-                text: 'js',
-                items: [
-                    { text: 'javascript', link: '/js/javascript/' },
-                    { text: 'Vue', link: '/js/Vue/' },
-                    { text: 'React', link: '/js/React/' },
-                    { text: 'jQuery', link: '/js/jQuery/' },
-                ]
-            },
-            {
-                text: 'css',
-                items: [
-                    { text: 'css', link: '/css/css/' },
-                    { text: 'Stylus', link: '/css/Stylus/' }
-                ]
-            },
+            { text: 'javascript', link: '/js/' },
+            { text: 'css', link: '/css/' },
             { text: 'html', link: '/html/' },
-            { 
-                text: '工具',
-                items: [
-                    { text: 'git', link: '/tool/git/' }
-                ]
-            },
+            { text: '工具', link: '/tool/' },
+            { text: '更新日志', link: '/version/' },
             {
                 text: '博客',
                 items: [
@@ -72,17 +54,87 @@ module.exports = {
                         items: [
                             { text: 'CSDN博客', link: 'https://blog.csdn.net/fxss5201' },
                             { text: '个人博客', link: 'http://www.fxss5201.cn/' }
-                        ] 
+                        ]
                     }
                 ]
             },
-            { text: '更新日志', link: '/version/' },
         ],
         sidebar: {
-            '/js/javascript/': [
-                ['', '通用方法'],
-                ['Array', 'Array方法总结'],
-                ['Polyfill', 'Polyfill'],
+            '/js/': [
+                {
+                    title: 'javascript',
+                    collapsable: false,
+                    children: [
+                        '',
+                        'jsArray',
+                        'jsPolyfill',
+                    ]
+                },
+                {
+                    title: 'Vue',
+                    collapsable: false,
+                    children: [
+                        'vue',
+                        'vuePlugin'
+                    ]
+                },
+                {
+                    title: 'jQuery',
+                    collapsable: false,
+                    children: [
+                        'jQuery'
+                    ]
+                },
+                {
+                    title: 'React',
+                    collapsable: false,
+                    children: [
+                        'React'
+                    ]
+                }
+            ],
+            '/css/': [
+                {
+                    title: 'css',
+                    collapsable: false,
+                    children: [
+                        ''
+                    ]
+                },
+                {
+                    title: 'stylus',
+                    collapsable: false,
+                    children: [
+                        'stylus'
+                    ]
+                }
+            ],
+            '/html/': [
+                {
+                    title: 'html',
+                    collapsable: false,
+                    children: [
+                        ''
+                    ]
+                }
+            ],
+            '/tool/': [
+                {
+                    title: '工具',
+                    collapsable: false,
+                    children: [
+                        ''
+                    ]
+                }
+            ],
+            '/version/': [
+                {
+                    title: '更新日志',
+                    collapsable: false,
+                    children: [
+                        ''
+                    ]
+                }
             ]
         },
         serviceWorker: {

@@ -1,5 +1,5 @@
 ---
-title: javascript Polyfill
+title: Polyfill
 lang: zh-CN
 description: 用于积累javascript中的实用代码段。按照实现的功能进行划分，不区分先后。
 meta:
@@ -7,7 +7,7 @@ meta:
     content: javascript, 实用代码段
 ---
 
-# javascript Polyfill #
+# Polyfill #
 
 主要是自己用已有的一些方法去实现的实验属性方法。
 
