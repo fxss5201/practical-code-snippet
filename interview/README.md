@@ -13,7 +13,9 @@ meta:
 
 以下全部以`'kebab-case'`、`'kebabCase'`为例
 
-### `slice` ###
+### `'kebab-case'`转`'kebabCase'` ###
+
+#### `slice` ####
 
 1. 第一种
 
@@ -47,7 +49,7 @@ function strToCamelCase(str){
 strToCamelCase('kebab-case');  // "kebabCase"
 ```
 
-### `charAt` 与 `slice` ###
+#### `charAt` 与 `slice` ####
 
 1. 第一种
 
@@ -69,7 +71,7 @@ function strToCamelCase(str){
 strToCamelCase('kebab-case'); // "kebabCase"
 ```
 
-### `substring` ###
+#### `substring` ####
 
 ``` javascript
 function strToCamelCase(str){
@@ -79,7 +81,7 @@ function strToCamelCase(str){
 strToCamelCase('kebab-case'); // "kebabCase"
 ```
 
-### `substr` ###
+#### `substr` ####
 
 ``` javascript
 function strToCamelCase(str){
@@ -87,6 +89,16 @@ function strToCamelCase(str){
 }
 
 strToCamelCase('kebab-case'); // "kebabCase"
+```
+
+### `'kebabCase'`转`'kebab-case'` ###
+
+``` javascript
+function strToKebabCase(str){
+    return str.replace(/([A-Z])/g, (match, p1, offset, string) => { return `-${p1.toLowerCase()}` })
+}
+
+strToKebabCase('kebabCase'); // "kebab-case"
 ```
 
 ## 时间格式化 ##
