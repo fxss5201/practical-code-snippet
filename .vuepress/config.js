@@ -45,6 +45,7 @@ module.exports = {
             { text: 'css', link: '/css/' },
             { text: 'html', link: '/html/' },
             { text: '工具', link: '/tool/' },
+            { text: '面试题', link: '/interview/' },
             { text: '更新日志', link: '/version/' },
             {
                 text: '博客',
@@ -121,6 +122,15 @@ module.exports = {
             '/tool/': [
                 {
                     title: '工具',
+                    collapsable: false,
+                    children: [
+                        ''
+                    ]
+                }
+            ],
+            '/interview/': [
+                {
+                    title: '面试题',
                     collapsable: false,
                     children: [
                         ''
