@@ -103,6 +103,13 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'sass',
+                    collapsable: false,
+                    children: [
+                        'sass'
+                    ]
+                },
+                {
                     title: 'stylus',
                     collapsable: false,
                     children: [

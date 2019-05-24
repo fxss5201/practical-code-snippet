@@ -226,3 +226,21 @@ meta:
 ```
 
 [Open in CodePen](https://codepen.io/fxss5201/pen/yQrwMb)
+
+## Firefox `::-moz-focus-inner` ##
+
+对于点击某些元素后出现的边框，去除的办法是:
+
+```css
+button:focus {
+    outline: none;
+}
+```
+
+但是在 Firefox 下，对于类型为`button`的元素，即使设置`outline`，也还是会出现虚线。这个时候就需要用 Firefox 的私有伪元素`::-moz-focus-inner`：
+
+```css
+button::-moz-focus-inner {
+    border: 0;
+}
+```
