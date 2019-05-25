@@ -110,6 +110,13 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'less',
+                    collapsable: false,
+                    children: [
+                        'less'
+                    ]
+                },
+                {
                     title: 'stylus',
                     collapsable: false,
                     children: [

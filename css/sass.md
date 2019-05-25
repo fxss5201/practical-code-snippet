@@ -9,6 +9,43 @@ meta:
 
 # Sass #
 
+## 清浮动 ##
+
+```scss
+@mixin clearfix {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::before,
+    #{$selector}::after {
+      display: table;
+      content: "";
+    }
+    #{$selector}::after {
+      clear: both;
+    }
+  }
+}
+
+.row {
+  @include clearfix;
+}
+```
+
+## 文字超出一行...显示 ##
+
+```scss
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.one-line {
+  @include ellipsis;
+}
+```
+
 ## 行内多个相同元素设置间距 ##
 
 ```scss
