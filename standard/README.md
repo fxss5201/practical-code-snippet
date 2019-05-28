@@ -11,10 +11,11 @@ meta:
 
 为了更好的协同作战，特定以下规则：
 
-1. [html 代码规范](/standard/htmlStandard.html)
-2. [css 及 css预处理器](/standard/cssStandard.html)
-3. [javascript](/standard/jsStandard.html)
-4. [vue](/standard/vueStandard.html)
+1. 所有需求等产品文档更新，产品文档更新之后再改，免做无用功。
+2. [html 代码规范](/standard/htmlStandard.html)
+3. [css 及 css预处理器](/standard/cssStandard.html)
+4. [javascript](/standard/jsStandard.html)
+5. [vue](/standard/vueStandard.html)
 
 代码规范部分内容参考自：<https://guide.aotu.io/index.html>。
 

@@ -178,6 +178,20 @@ module.exports = {
                     children: [
                         'vueStandard'
                     ]
+                },
+                {
+                    title: '接口规范',
+                    collapsable: false,
+                    children: [
+                        'serviceStandard'
+                    ]
+                },
+                {
+                    title: '职责规范',
+                    collapsable: false,
+                    children: [
+                        'dutyStandard'
+                    ]
                 }
             ],
             '/interview/': [
