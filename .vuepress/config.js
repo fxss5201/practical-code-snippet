@@ -45,6 +45,7 @@ module.exports = {
             { text: 'css', link: '/css/' },
             { text: 'html', link: '/html/' },
             { text: '工具', link: '/tool/' },
+            { text: '代码规范', link: '/standard/' },
             { text: '面试题', link: '/interview/' },
             { text: '更新日志', link: '/version/' },
             {
@@ -139,6 +140,43 @@ module.exports = {
                     collapsable: false,
                     children: [
                         ''
+                    ]
+                }
+            ],
+            '/standard/': [
+                {
+                    title: '代码规范',
+                    collapsable: false,
+                    children: [
+                        ''
+                    ]
+                },
+                {
+                    title: 'html',
+                    collapsable: false,
+                    children: [
+                        'htmlStandard'
+                    ]
+                },
+                {
+                    title: 'css 及 css预处理器',
+                    collapsable: false,
+                    children: [
+                        'cssStandard'
+                    ]
+                },
+                {
+                    title: 'javascript',
+                    collapsable: false,
+                    children: [
+                        'jsStandard'
+                    ]
+                },
+                {
+                    title: 'vue',
+                    collapsable: false,
+                    children: [
+                        'vueStandard'
                     ]
                 }
             ],
