@@ -89,6 +89,10 @@ git remote -v  查看远程库更加详细的信息
 
 添加远程库。
 
+### git remote rm origin ###
+
+删除远程库。
+
 ## git push ##
 
 git push  负责将你的变更上传到指定的远程仓库，并在远程仓库上合并你的新提交记录。
