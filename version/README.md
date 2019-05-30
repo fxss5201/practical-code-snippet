@@ -9,6 +9,12 @@ meta:
 
 # 更新日志 #
 
+## 2019-05-30 ##
+
+- 新增  javascript -> 判断移动端还是PC端
+- 新增  javascript -> 设置 rem 基准值
+- 新增  javascript -> 将 location.search 中的参数转化为js对象
+
 ## 2019-05-28 ##
 
 - 新增  git 总结

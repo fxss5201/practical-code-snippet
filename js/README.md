@@ -11,6 +11,110 @@ meta:
 
 用于积累javascript中的实用代码段。按照实现的功能进行划分，不区分先后。
 
+## 将 location.search 中的参数转化为js对象 ##
+
+```javascript
+function getSearchArgs(){
+    var args = {};
+    var query = location.search.substring(1);
+    var pairs = query.split("&");
+    for(var i = 0;i < pairs.length; i++){
+        var pos = pairs[i].indexOf("=");
+        if(pos == -1) continue;
+        var name = pairs[i].substring(0, pos);
+        var value = pairs[i].substring(pos + 1);
+        value = decodeURIComponent(value);
+        args[name] = value;
+    }
+    return args;
+}
+/*
+ * 使用方法
+ * var searchArgs = getSearchArgs();
+ */
+```
+
+## 设置 rem 基准值 ##
+
+代码摘自：[TIM-手机版](https://tim.qq.com/mobile/index.html)
+
+```javascript
+(function(designWidth, maxWidth) {
+    var doc = document,
+        win = window,
+        docEl = doc.documentElement,
+        remStyle = document.createElement("style"),
+        tid;
+
+    function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        maxWidth = maxWidth || 540;
+        width > maxWidth && (width = maxWidth);
+        var rem = width * 100 / designWidth;
+        remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+    }
+    if (docEl.firstElementChild) {
+        docEl.firstElementChild.appendChild(remStyle);
+    } else {
+        var wrap = doc.createElement("div");
+        wrap.appendChild(remStyle);
+        doc.write(wrap.innerHTML);
+        wrap = null;
+    }
+    //要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+    refreshRem();
+    win.addEventListener("resize", function() {
+        clearTimeout(tid); //防止执行两次
+        tid = setTimeout(refreshRem, 300);
+    }, false);
+    win.addEventListener("pageshow", function(e) {
+        if (e.persisted) { // 浏览器后退的时候重新计算
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }
+    }, false);
+    if (doc.readyState === "complete") {
+        doc.body.style.fontSize = "16px";
+    } else {
+        doc.addEventListener("DOMContentLoaded", function(e) {
+            doc.body.style.fontSize = "16px";
+        }, false);
+    }
+})(750, 750);
+```
+
+## 判断移动端还是PC端 ##
+
+代码摘自：[TIM-手机版](https://tim.qq.com/mobile/index.html)
+
+```javascript
+window.OS = function() {
+    var a = navigator.userAgent,
+        b = /(?:Android)/.test(a),
+        d = /(?:Firefox)/.test(a),
+        e = /(?:Mobile)/.test(a),
+        f = b && e,
+        g = b && !f,
+        c = /(?:iPad.*OS)/.test(a),
+        h = !c && /(?:iPhone\sOS)/.test(a),
+        k = c || g || /(?:PlayBook)/.test(a) || d && /(?:Tablet)/.test(a),
+        a = !k && (b || h || /(?:(webOS|hpwOS)[\s\/]|BlackBerry.*Version\/|BB10.*Version\/|CriOS\/)/.test(a) || d && e);
+    return {
+        android: b,
+        androidPad: g,
+        androidPhone: f,
+        ipad: c,
+        iphone: h,
+        tablet: k,
+        phone: a
+    }
+}();
+if (!window.OS.phone && !window.OS.ipad) {
+    // 非移动端及ipad端跳转
+    location.href = '';
+}
+```
+
 ## 检测对象类型 ##
 
 ### 检测对象类型-->>`toString()` 检测对象类型 ###
