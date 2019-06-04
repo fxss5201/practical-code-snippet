@@ -8,18 +8,20 @@ function integrateGitment(router) {
   document.body.appendChild(scriptGitment)
 
   router.afterEach((to, from) => {
-    console.log(to.path)
     // 页面滚动，hash值变化，也会触发afterEach钩子，避免重新渲染
     if (to.path === from.path) return
     // 已被初始化则根据页面重新渲染 评论区
+    const $page = document.querySelector('.page')
+    const commentsContainer = document.createElement('div')
+    commentsContainer.id = 'comments-container'
+    commentsContainer.classList.add('content')
     if (scriptGitment.onload) {
-      renderGitment()
+      if ($page) {
+        $page.appendChild(commentsContainer)
+        renderGitment()
+      }
     } else {
       scriptGitment.onload = () => {
-        const commentsContainer = document.createElement('div')
-        commentsContainer.id = 'comments-container'
-        commentsContainer.classList.add('content')
-        const $page = document.querySelector('.page')
         if ($page) {
           $page.appendChild(commentsContainer)
           renderGitment()
