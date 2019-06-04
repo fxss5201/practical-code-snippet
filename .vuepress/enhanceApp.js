@@ -11,6 +11,7 @@ function integrateGitment(router) {
     // 页面滚动，hash值变化，也会触发afterEach钩子，避免重新渲染
     if (to.path === from.path) return
     // 已被初始化则根据页面重新渲染 评论区
+    const $home = document.querySelector('.home')
     const $page = document.querySelector('.page')
     const commentsContainer = document.createElement('div')
     commentsContainer.id = 'comments-container'
@@ -18,14 +19,18 @@ function integrateGitment(router) {
     if (scriptGitment.onload) {
       if ($page) {
         $page.appendChild(commentsContainer)
-        renderGitment()
+      }else{
+        $home.appendChild(commentsContainer)
       }
+      renderGitment()
     } else {
       scriptGitment.onload = () => {
         if ($page) {
           $page.appendChild(commentsContainer)
-          renderGitment()
+        }else{
+          $home.appendChild(commentsContainer)
         }
+        renderGitment()
       }
     }
   })
