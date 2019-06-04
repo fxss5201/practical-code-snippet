@@ -33,7 +33,7 @@ function integrateGitment(router) {
       // https://github.com/imsun/gitment/issues/55
       id: location.pathname,
       owner: 'fxss5201', // 必须是你自己的github账号
-      repo: 'fxss5201.github.io', // 上一个准备的github仓库
+      repo: 'practical-code-snippet', // 上一个准备的github仓库
       link: location.origin + location.pathname,
       oauth: {
         client_id: 'd8cf9772e225e15ec43d', // 第一步注册 OAuth application 后获取到的 Client ID
