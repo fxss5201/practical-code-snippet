@@ -7,9 +7,36 @@ meta:
     content: javascript, 实用代码段
 ---
 
-# 解决方案实现 #
-
 用于积累javascript中的实用代码段。按照实现的功能进行划分，不区分先后。
+
+## ios qq 动态修改修改 document.title 的方法 ##
+
+IOS webview中网页标题只加载一次，动态改变是无效的。这个时候可以使用下述方法进行动态修改：
+
+```javascript
+export function changeTitle (title, img) {
+  if (title === undefined || window.document.title === title) {
+    return
+  }
+  var mobile = navigator.userAgent.toLowerCase()
+  if (/iphone|ipad|ipod/.test(mobile)) {
+    var iframe = document.createElement('iframe')
+    iframe.style.display = 'none'
+    iframe.setAttribute('src', img)
+    var iframeCallback = function () {
+      setTimeout(function () {
+        iframe.removeEventListener('load', iframeCallback)
+        document.body.removeChild(iframe)
+      }, 0)
+    }
+    iframe.addEventListener('load', iframeCallback)
+    document.body.appendChild(iframe)
+  }
+  document.title = title
+}
+```
+
+利用加载 iframe 的方式修改 title ，代码参考自 [vue-wechat-title](https://github.com/deboyblog/vue-wechat-title/blob/2.0/vue-wechat-title.js) 。
 
 ## 将 location.search 中的参数转化为js对象 ##
 

@@ -7,8 +7,6 @@ meta:
     content: javascript, 实用代码段
 ---
 
-# Polyfill #
-
 主要是自己用已有的一些方法去实现的实验属性方法。
 
 ## `Array.flat`的实现方式 ##

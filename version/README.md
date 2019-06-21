@@ -7,7 +7,9 @@ meta:
     content: javascript, 实用代码段, 更新日志
 ---
 
-# 更新日志 #
+## 2019-06-21 ##
+
+- 新增  javascript -> ios qq 动态修改修改 document.title 的方法
 
 ## 2019-05-30 ##
 

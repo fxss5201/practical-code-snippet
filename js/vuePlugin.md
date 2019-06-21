@@ -7,8 +7,6 @@ meta:
     content: Vue, 实用代码段
 ---
 
-# Vue插件 #
-
 ## axios ##
 
 ### 取消请求 ###
