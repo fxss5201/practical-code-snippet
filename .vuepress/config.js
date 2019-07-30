@@ -70,12 +70,14 @@ module.exports = {
                         '',
                         'jsArray',
                         'jsPolyfill',
+                        'plugin'
                     ]
                 },
                 {
                     title: 'Vue',
                     collapsable: false,
                     children: [
+                        'vueSummary',
                         'vue',
                         'vuePlugin'
                     ]
@@ -100,7 +102,8 @@ module.exports = {
                     title: 'css',
                     collapsable: false,
                     children: [
-                        ''
+                        '',
+                        'cssSummary'
                     ]
                 },
                 {

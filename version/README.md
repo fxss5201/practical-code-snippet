@@ -7,6 +7,17 @@ meta:
     content: javascript, 实用代码段, 更新日志
 ---
 
+## 2019-07-30 ##
+
+- 新增  javascript -> 插件/组件
+- 新增  vue -> vue全家桶
+- 新增  vue -> vue插件/组件
+- 新增  css -> css预编译器介绍
+- 新增  面试题 -> JavaScript 的事件循环
+- 新增  面试题 -> 前端中的模块化开发
+- 新增  面试题 -> Vue 的父组件和子组件生命周期钩子执行顺序是什么
+- 新增  面试题 -> 介绍下 npm 模块安装机制，为什么输入 npm install 就可以自动安装对应的模块
+
 ## 2019-06-21 ##
 
 - 新增  javascript -> ios qq 动态修改修改 document.title 的方法

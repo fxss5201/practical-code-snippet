@@ -7,8 +7,6 @@ meta:
     content: Sass, 实用代码段
 ---
 
-# Sass #
-
 ## 清浮动 ##
 
 ```scss

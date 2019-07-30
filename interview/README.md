@@ -7,7 +7,78 @@ meta:
     content: javascript, 面试题
 ---
 
-# 面试题 #
+## JavaScript 的事件循环 ##
+
+```js
+//请写出输出内容
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+async function async2() {
+  console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0)
+
+async1();
+
+new Promise(function(resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function() {
+  console.log('promise2');
+});
+console.log('script end');
+```
+
+具体分析看 <https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7> 。
+
+## 前端中的模块化开发 ##
+
+<https://www.processon.com/view/link/5c8409bbe4b02b2ce492286a#map>
+
+## Vue 的父组件和子组件生命周期钩子执行顺序是什么 ##
+
+1. 加载渲染过程
+    1. 父组件： `beforeCreate` -> `created` -> `beforeMount`
+    2. 子组件： -> `beforeCreate` -> `created` -> `beforeMount` -> `mounted`
+    3. 父组件： -> `mounted`
+
+2. 子组件更新过程
+
+    1. 父组件： `beforeUpdate`
+    2. 子组件： -> `beforeUpdate` -> `updated`
+    3. 父组件： -> `updated`
+
+3. 父组件更新过程
+
+    1. 父组件： `beforeUpdate` -> `updated`
+
+4. 销毁过程
+
+    1. 父组件： `beforeDestroy`
+    2. 子组件： -> `beforeDestroy` -> `destroyed`
+    3. 父组件： -> `destroyed`
+
+## 介绍下 npm 模块安装机制，为什么输入 `npm install` 就可以自动安装对应的模块 ##
+
+npm 模块安装机制：
+
+* 发出npm install命令
+* 查询node_modules目录之中是否已经存在指定模块
+  * 若存在，不再重新安装
+  * 若不存在
+    * npm 向 registry 查询模块压缩包的网址
+    * 下载压缩包，存放在根目录下的.npm目录里
+    * 解压压缩包到当前项目的node_modules目录
+
+更详细的请查看： <https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/22> 。
 
 ## kebab-case字符串与camelCase字符串互相转换 ##
 
